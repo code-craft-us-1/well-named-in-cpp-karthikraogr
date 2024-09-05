@@ -36,4 +36,8 @@ namespace TelCoColorCoder {
         colorPairStr += MinorColorNames[minorColor];
         return colorPairStr;
     }
+   
+    int GetNumberFromColorPair(const MajorColor major, const MinorColor minor) {
+        return major * numberOfMinorColors + minor + 1;
+    }
 }
