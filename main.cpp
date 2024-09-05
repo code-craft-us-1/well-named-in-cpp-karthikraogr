@@ -23,16 +23,17 @@ void testPairToNumber(
 }
 
 std::string printRefManualData(){
-        //print reference manual for wiring personnel
-        int pairNum=0;
-        for (auto i = 0; i < TelCoColorCoder::MajorColor::maxSizeMajorColor; i++)
-    {
-        for (auto j = 0; j < TelCoColorCoder::MinorColor::maxSizeMinorColor; j++)
-        {
-            TelCoColorCoder::ColorPair colorPairTemp = { static_cast<TelCoColorCoder::MajorColor>(i),static_cast<TelCoColorCoder::MinorColor>(j) };
-            std::cout << pairNum++ << " " << colorPairTemp.getColorPairInString()<< std::endl;
+	//print reference manual for wiring personnel
+        std::string message = "Color Coding Manual\n";
+        for(int pairNumber = 1; pairNumber <= 25; pairNumber++) {
+            TelCoColorCoder::ColorPair colorPair =
+                TelCoColorCoder::GetColorPairFromNumber(pairNumber);
+            message += std::to_string(pairNumber);
+            message += " ";
+            message += colorPair.getString();
+            message += "\n";
         }
-    }
+        return message;
 }
 
 

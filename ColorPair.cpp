@@ -40,4 +40,10 @@ namespace TelCoColorCoder {
     int GetNumberFromColorPair(const MajorColor major, const MinorColor minor) {
         return major * numberOfMinorColors + minor + 1;
     }
+    std::string ColorPair::getString() {
+        std::string colorPairStr = MajorColorNames[majorColor];
+        colorPairStr += " ";
+        colorPairStr += MinorColorNames[minorColor];
+        return colorPairStr;
+    }
 }
