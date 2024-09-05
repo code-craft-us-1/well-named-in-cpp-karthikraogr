@@ -22,6 +22,19 @@ void testPairToNumber(
     assert(pairNumber == expectedPairNumber);
 }
 
+std::string printRefManualData(){
+        //print reference manual for wiring personnel
+        int pairNum=0;
+        for (auto i = 0; i < TelCoColorCoder::MajorColor::maxSizeMajorColor; i++)
+    {
+        for (auto j = 0; j < TelCoColorCoder::MinorColor::maxSizeMinorColor; j++)
+        {
+            TelCoColorCoder::ColorPair colorPairTemp = { static_cast<TelCoColorCoder::MajorColor>(i),static_cast<TelCoColorCoder::MinorColor>(j) };
+            std::cout << pairNum++ << " " << colorPairTemp.getColorPairInString()<< std::endl;
+        }
+    }
+}
+
 
 int main() {
     testNumberToPair(4, TelCoColorCoder::MajorColor::WHITE, TelCoColorCoder::MinorColor::BROWN);
@@ -29,6 +42,6 @@ int main() {
 
     testPairToNumber(TelCoColorCoder::MajorColor::BLACK, TelCoColorCoder::MinorColor::ORANGE, 12);
     testPairToNumber(TelCoColorCoder::MajorColor::VIOLET, TelCoColorCoder::MinorColor::SLATE, 25);
-
+    std::cout<<printRefManualData();
     return 0;
 }
